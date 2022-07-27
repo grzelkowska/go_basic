@@ -15,7 +15,9 @@ func lenAndUpper(name string) (int, string) {
 	return len(name), strings.ToUpper(name)
 }
 
+// naked return
 func lenAndUpper2(name string) (length int, uppercase string) {
+	defer fmt.Println("Done")
 	length = len(name)
 	uppercase = strings.ToUpper(name)
 	return
@@ -23,6 +25,26 @@ func lenAndUpper2(name string) (length int, uppercase string) {
 
 func repeatMe(words ...string) {
 	fmt.Println(words)
+}
+
+func superAdd(numbers ...int) int {
+	// for number := range numbers {
+	// 	fmt.Println(number + 1)
+	// }
+
+	// for index, number := range numbers{
+	// 	fmt.Println(index, number)
+	// }
+
+	// for i := 0; i < len(numbers); i++ {
+	// 	fmt.Println(numbers[i])
+	// }
+
+	total := 0
+	for _, number := range numbers {
+		total += number
+	}
+	return total
 }
 
 func main() {
@@ -62,4 +84,8 @@ func main() {
 
 	//
 	repeatMe("phil", "grze", "dal", "marl", "flynn")
+
+	//
+	// superAdd(1, 2, 3, 4, 5, 6)
+	fmt.Println(superAdd(1, 2, 3, 4, 5, 6))
 }
